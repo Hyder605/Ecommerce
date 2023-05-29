@@ -11,10 +11,10 @@ export const Hero = () => {
     return (
         <section>
             <Wrapper>
-                <main className='flex '>
-                    <div className='w-[50%]'>
-                        <div className='px-20 py-36'>
-                            <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl pr-16">
+                <main className='flex sm:flex-row flex-col-reverse items-center sm:items-stretch '>
+                    <div className=' sm:w-[50%]'>
+                        <div className=' px-12 py-24 md:px-16 md:py-32 lg:px-20 lg:py-36'>
+                            <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl pr-12 md:pr-16">
                                 Find Your Perfect Match
                             </h1>
 
@@ -23,23 +23,24 @@ export const Hero = () => {
                                 his ways and repealed the joke tax.
                             </p>
                             <div className='py-6'>
-                            <CartButton />
+                                <CartButton />
                             </div>
-                            
+
                         </div>
                     </div>
-                    <div className=' w-[50%] relative'>
+                    <div className='w-[50%] relative'>
                         {/* image */}
                         <div>
-                            <Image src={ShoeHero} alt="Shoe Main" className=' absolute top-20 -left-36 z-10'/>
-                            <div className='w-96 h-96 rounded-full bg-green-200/60 md:absolute top-5 blur-3xl '></div>
+                            <div className=' sm:absolute top-20 -left-36 z-10 ml-6  '>
+                                <div>
+                                <GalleryHeroSec />
+                                </div>
+                            </div>
+                            <div className='w-96 h-96 rounded-full bg-green-200/60 md:absolute top-5 blur-3xl hidden md:block '></div>
 
                         </div>
                     </div>
                 </main>
-                <>
-                <GalleryHeroSec/>
-                </>
 
             </Wrapper>
         </section>

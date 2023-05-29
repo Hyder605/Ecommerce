@@ -1,17 +1,18 @@
 import ShoeHero from '../../components/assets/shoe_hero.png'
-import Logo from "../assets/logo_ecom.svg"
+import ShoeHero2 from "../assets/shoe_hero2.png"
+import ShoeHero3 from "../assets/shoe_hero3.png"
+
 
 
 
 export const HeroSecImageList  = [
   {
-    name: 'Homenaje a la Neurocirugía',
-    artist: 'Marta Colvin Andrade',
     url: ShoeHero,
   },
   {
-    name: 'Floralis Genérica',
-    artist: 'Eduardo Catalano',
-    url: Logo,
+    url: ShoeHero2,
+  },
+  {
+    url: ShoeHero3,
   }];
   
