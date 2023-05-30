@@ -4,14 +4,13 @@ import React from 'react'
 import { CartButton } from '../Shared/CartButton'
 import { Wrapper } from '../Shared/Wrapper'
 import ShoeHero from '../../components/assets/shoe_hero.png'
-import Gallery from '../Shared/NextFunction'
-import GalleryHeroSec from '../Shared/NextFunction'
+import GalleryHeroSec from '../Shared/NextButton'
 
 export const Hero = () => {
     return (
-        <section>
+        <section >
             <Wrapper>
-                <main className='flex sm:flex-row flex-col-reverse items-center sm:items-stretch '>
+                <main className='flex sm:flex-row flex-col-reverse items-center sm:items-stretch 2xl:pb-8 '>
                     <div className=' sm:w-[50%]'>
                         <div className=' px-12 py-24 md:px-16 md:py-32 lg:px-20 lg:py-36'>
                             <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl pr-12 md:pr-16">

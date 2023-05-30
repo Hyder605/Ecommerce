@@ -27,7 +27,7 @@ export default function GalleryHeroSec() {
         <StepForward className="mr-2 h-14 w-12 " />
 
       </button>
-      <div className=' w-[125%] sm:max-w-[95%] md:max-w-[85%] lg:max-w-[100%] sm:pl-16 md:pl-8 '>
+      <div className=' w-[125%] sm:max-w-[95%] md:max-w-[85%] lg:max-w-[100%] sm:pl-16 md:pl-8'>
         <Image
           src={ShoeImage.url} alt="image" 
         />
