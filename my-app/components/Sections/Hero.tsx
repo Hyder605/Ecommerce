@@ -3,8 +3,9 @@ import Image from 'next/image'
 import React from 'react'
 import { CartButton } from '../Shared/CartButton'
 import { Wrapper } from '../Shared/Wrapper'
-import ShoeHero from '../../components/assets/shoe_hero.png'
 import GalleryHeroSec from '../Shared/NextButton'
+
+
 
 export const Hero = () => {
     return (

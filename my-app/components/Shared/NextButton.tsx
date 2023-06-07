@@ -4,10 +4,23 @@ import { StepForward } from "lucide-react"
 
 import { useState } from 'react';
 import { HeroSecImageList } from '../../components/data/heroSecImages';
+import { client } from '@/sanity/lib/client'
+import { urlForImage } from '@/sanity/lib/image'
 
-export default function GalleryHeroSec() {
+
+
+export const getProductData = async () => {
+  const res = await client.fetch(`*[_type=='heroslide']`)
+  return res
+}
+
+async function GalleryHeroSec() {
+  
+  const data = await getProductData()
+  console.log(data)
+
   const [index, setIndex] = useState(0);
-  const hasNext = index < HeroSecImageList.length - 1;
+  const hasNext = index < data.heroSecImages.length - 1;
 
   function handleNextClick() {
     if (hasNext) {
@@ -19,7 +32,7 @@ export default function GalleryHeroSec() {
 
 
 
-  let ShoeImage = HeroSecImageList[index];
+  let ShoeImage =data.heroSecImages[index];
   return (
     <>
     {/* Next button on Hero Section */}
@@ -29,10 +42,12 @@ export default function GalleryHeroSec() {
       </button>
       <div className=' w-[125%] sm:max-w-[95%] md:max-w-[85%] lg:max-w-[100%] sm:pl-16 md:pl-8'>
         <Image
-          src={ShoeImage.url} alt="image" 
+          src={urlForImage(ShoeImage).url()} alt="image" 
         />
       </div>
 
     </>
   );
 }
+
+export default GalleryHeroSec
