@@ -3,7 +3,7 @@ import Image from 'next/image'
 import React from 'react'
 import { CartButton } from '../Shared/CartButton'
 import { Wrapper } from '../Shared/Wrapper'
-import GalleryHeroSec from '../Shared/NextButton'
+import {GalleryHeroSec} from '../Shared/NextButton'
 
 
 
@@ -33,6 +33,7 @@ export const Hero = () => {
                         <div>
                             <div className=' sm:absolute top-20 -left-36 z-10 ml-6  '>
                                 <div>
+                                    {/* @ts-ignore */}
                                 <GalleryHeroSec />
                                 </div>
                             </div>

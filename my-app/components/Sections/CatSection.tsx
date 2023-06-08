@@ -2,27 +2,36 @@ import Link from 'next/link'
 import React from 'react'
 import CatCard from '../Shared/CatCard'
 import { Wrapper } from '../Shared/Wrapper'
+import { client } from '@/sanity/lib/client'
 
-export default function CatSection() {
+interface ICategory{
+  _type: string,
+  name: string,
+  _id: string,
+}
+
+async function getProductData() {
+  const res = await client.fetch(`*[_type=='category']`)
+  const imagedata:ICategory[] = res
+  return imagedata
+}
+
+
+
+export default async function CatSection() {
+  const data=  await getProductData()
   return (
     <div>
       <Wrapper>
         <div className="grid  sm:grid-cols-[repeat(2,auto)] md:grid-cols-[repeat(3,auto)] gap-y-[300px] md:gap-y-[340px] lg:gap-y-[370px] gap-x-4 md:gap-x-8 px-5 md:px-10">
-          <Link href={""} className="w-full">
-            <CatCard />
-          </Link>
-          <Link href={""} className="w-full">
-            <CatCard />
-          </Link>
-          <Link href={""} className="w-full">
-            <CatCard />
-          </Link>
-          <Link href={""} className="w-full">
-            <CatCard />
-          </Link>
-          <Link href={""} className="w-full">
-            <CatCard />
-          </Link>
+          {data.map((item)=>{
+            return(
+              <Link key={item._id} href={""} className="w-full ">
+              <CatCard props={item} />
+            </Link>
+            )
+          })}
+         
 
         </div>
       </Wrapper>

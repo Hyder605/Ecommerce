@@ -1,9 +1,18 @@
 import Image from 'next/image'
 import React from 'react'
 import ShoeHero from '../../components/assets/shoe_hero.png'
+import { urlForImage } from '@/sanity/lib/image'
 
 
-export default function CatCard() {
+interface ICategory {
+    _type: string,
+    name: string,
+    _id: string,
+  }
+
+
+export default function CatCard({ props }: { props: ICategory }) {
+    console.log(props)    
     return (
         <main>
             <div className='bg-green relative '>
@@ -11,7 +20,7 @@ export default function CatCard() {
                     <h4 className="font-bold text-lg"></h4>
                     <div className='absolute top-[85px] md:top-[130px] lg:top-[120px]'><Image src={ShoeHero} alt="" className='w-80 md:w-96'/></div>
                     <p className='mt-2 text-slate-600'></p>
-                    <span className='absolute transform -rotate-90 right-1 -z-10 font-extrabold text-lg  text-gray-600'>Trainer Shoes</span>
+                    <span className='absolute transform -rotate-90 right-1 -z-10 font-extrabold text-lg  text-gray-600'>{props.name}</span>
 
 
                 </div>
