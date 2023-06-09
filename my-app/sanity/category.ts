@@ -8,5 +8,11 @@ export const category = {
             type:'string',
             title:"Product category"
         },
+        {
+            name: "image",
+            title: "Image for Category",
+            type: "image",
+           
+        },
     ]
 }

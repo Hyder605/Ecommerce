@@ -6,12 +6,20 @@ export const HeroSecSlide={
     title:"Upload Hero Section Images",
     fields:[
         {
-            name:'heroSecImages',
-            title:"Hero Section ",
-            type:"array",
-            of:[{
-                type:"image"
-            }]
+            name:'slide1',
+            title:"Slide1 ",
+            type:"image",
+            
+        },{
+            name:'slide2',
+            title:"Slide2 ",
+            type:"image",
+            
+        },{
+            name:'slide3',
+            title:"Slide3 ",
+            type:"image",
+            
         }
     ]
 
