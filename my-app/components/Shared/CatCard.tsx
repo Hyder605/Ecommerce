@@ -12,7 +12,7 @@ interface ICategory {
 
 
 export default function CatCard({ props }: { props: ICategory }) {
-    console.log(props)    
+    // console.log(props)    
     return (
         <main>
             <div className='bg-green relative '>

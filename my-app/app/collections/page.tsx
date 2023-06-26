@@ -5,11 +5,14 @@ import Link from 'next/link'
 import React from 'react'
 import { client } from '@/sanity/lib/client'
 import { Image as IImage } from 'sanity'
+import { urlForImage } from '@/sanity/lib/image'
+
+
 
 interface IProduct{
     _id: string,
     title: string,
-    image: IImage[],
+    image: IImage,
     price: number
 }
 
@@ -22,8 +25,7 @@ async function getProductData() {
 
 export default async function Collections() {
     const data=  await getProductData()
-    // console.log(data)
-
+    
     return (
 
         <section>
@@ -34,7 +36,7 @@ export default async function Collections() {
                         <Link href={`./product/${item._id}`} key={item._id}>
                             <div className='border w-full rounded-md  shadow-2xl flex flex-col items-center bg-white'>
                                 <div className='flex items-center justify-center h-72 w-full ' >
-                                    {/* <Image src={item.url} alt="" className='w-80 md:w-96' /> */}
+                                    <Image src={urlForImage(item.image).url()} alt="" className='w-80 md:w-96' width={300} height={300} />
                                 </div>
                                 <div className='bg-slate-200 text-center w-full'>
                                     <span className='font-extrabold text-lg  text-gray-600 '>{item.title}</span>

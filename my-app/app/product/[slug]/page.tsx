@@ -1,13 +1,12 @@
-import { HeroSecImageList } from "@/components/data/heroSecImages"
 import AddQuantityButtton from "@/components/Shared/AddQuantityButtton"
 import SliderEffect from "@/components/Shared/SliderEffect"
 import { Wrapper } from "@/components/Shared/Wrapper"
 import { Button } from "@/components/ui/button"
 import { ShoppingCart } from "lucide-react"
-import Image, { StaticImageData } from 'next/image'
 import { client } from '@/sanity/lib/client'
 import { Image as IImage } from 'sanity'
-
+import AddToCartFunctionality from "@/components/Shared/AddToCartFunctionality"
+import CallToAction from "@/components/Shared/CallToAction"
 
 
 interface IProduct{
@@ -16,6 +15,7 @@ interface IProduct{
     image: IImage[],
     price: number
 }
+
 
 
 async function getProductData() {
@@ -31,12 +31,11 @@ interface Iparams {
 
 export default async function Product({params}:Iparams) {
     const dynamicPage=params.slug
-    // const data = HeroSecImageList
     const data=  await getProductData()
-    console.log(data)
 
     const dynamicId=data.find((item)=>item._id==dynamicPage.toString())
 
+    
     return (
         <section>
             <Wrapper>
@@ -65,16 +64,10 @@ export default async function Product({params}:Iparams) {
                             </div>
                             <div className="flex items-center mt-4">
                                 <h3 className="text-lg font-semibold"> Quantity : </h3>
-                                <div className="pl-6"><AddQuantityButtton /></div>
-
+                                <div className="pl-6"><CallToAction props={dynamicId} /></div>
                             </div>
                             <div className="mt-4">
-                                <Button>
-                                    <ShoppingCart className="mr-2 h-4 w-4" /> Add to Cart
-                                </Button>
-                            </div>
-                            <div className="mt-4">
-                                <h3 className="text-lg font-semibold">Total Price :</h3>
+                                <h3 className="text-lg font-semibold">Product Price :</h3>
                                 <h3 className="text-lg font-semibold">${dynamicId?.price}</h3>
                             </div>
 
@@ -87,5 +80,3 @@ export default async function Product({params}:Iparams) {
         </section >
     )
 }
-
-

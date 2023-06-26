@@ -25,23 +25,10 @@ export const productSanity = {
             ]
         },
         {
-            name: "front_image",
-            title: "Front View Image",
-            type: "image",
-           
-        },
-        {
-            name: "back_image",
-            title: "Back View Image",
-            type: "image",
-           
-        },
-        {
-            name: "side_image",
-            title: "Side View Image",
-            type: "image",
-           
-        },
+          name: 'image',
+          type: 'image',
+          title: 'Image',
+          }
     ]
 
 }

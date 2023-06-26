@@ -2,16 +2,33 @@
 import Image from 'next/image'
 import { ShoppingCart, X } from "lucide-react"
 import { Menu } from "lucide-react"
-
-
 import React, { useState } from 'react'
 import { Wrapper } from '../Shared/Wrapper'
 import Logo from "../assets/logo_ecom.svg"
 import MobileMenu from './MenuMobile'
 import Link from 'next/link'
+import { useSelector } from 'react-redux'
+
+export interface CartItem {
+    product: any;
+    quantity: number;
+}
+
+export interface CartState {
+    cart: {
+        items: CartItem[];
+        totalAmount: number;
+        totalQuantity: number;
+    }
+
+}
+
+
 
 export const NavBar = () => {
     const [Menubutton, setMenubutton] = useState(true)
+
+    const { items,totalAmount,totalQuantity } = useSelector((state:CartState) => state.cart)
 
 
     return (
@@ -24,7 +41,7 @@ export const NavBar = () => {
                         {/* menu */}
                         <ul className='flex text-sm lg:text-lg gap-x-3 lg:gap-x-5 font-semibold'>
                             <li>
-                            <Link href={"./"}>Home</Link>
+                                <Link href={"./"}>Home</Link>
                             </li>
                             <li>
                                 <Link href={"./collections"}>Collections</Link>
@@ -34,14 +51,14 @@ export const NavBar = () => {
                     </div>
                     <div className=' w-1/3'>
                         <Link href={"./"} className='flex items-center justify-center '>
-                                {/* logo */}
-                                <div className='w-[15%] lg:h-[15%] '>
-                                    <Image src={Logo} alt="logo" />
-                                </div>
-                                <div>
-                                    <p className='font-bold  sm:text-xl md:text-2xl lg:text-3xl pl-1 text-green-600'>Green Mart</p>
-                                </div>
-                            </Link>
+                            {/* logo */}
+                            <div className='w-[15%] lg:h-[15%] '>
+                                <Image src={Logo} alt="logo" />
+                            </div>
+                            <div>
+                                <p className='font-bold  sm:text-xl md:text-2xl lg:text-3xl pl-1 text-green-600'>Green Mart</p>
+                            </div>
+                        </Link>
 
 
                     </div>
@@ -49,10 +66,17 @@ export const NavBar = () => {
 
                         {/* cart icon */}
                         <div className='flex pr-10 justify-center relative'>
-                            <button >
-                                <ShoppingCart className="mr-2 h-5 w-5 " />
-                            </button>
-                            <p className='"h-[14px] md:h-[18px] min-w-[14px] md:min-w-[18px] rounded-full bg-red-600 absolute top-[-10px] left-3 md:left-3 text-white text-[10px] md:text-[12px] flex justify-center items-center px-[2px] md:px-[5px]'>0</p>
+                            <Link href='/cart'>
+                                <button >
+                                    <ShoppingCart className="mr-2 h-5 w-5 " />
+                                </button>
+                            </Link>
+
+                            {totalQuantity> 0 && (
+                                <p className='"h-[14px] md:h-[18px] min-w-[14px] md:min-w-[18px] rounded-full bg-red-600 absolute top-[-10px] left-3 md:left-3 
+                                text-white text-[10px] md:text-[12px] flex justify-center items-center px-[2px] md:px-[5px]'>{totalQuantity}</p>
+                            )}
+
                         </div>
                         {/* menu icon */}
                         <div className='flex pr-10 justify-center sm:hidden '>
