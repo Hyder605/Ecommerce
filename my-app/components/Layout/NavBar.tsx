@@ -33,7 +33,7 @@ export const NavBar = () => {
 
     return (
 
-        <section className='sticky top-0 z-20'>
+        <div className='sticky top-0 z-20'>
             <Wrapper>
                 <header className=' flex justify-between items-center pt-3 '>
 
@@ -94,6 +94,6 @@ export const NavBar = () => {
                     </div>
                 </header>
             </Wrapper>
-        </section>
+        </div>
     )
 }

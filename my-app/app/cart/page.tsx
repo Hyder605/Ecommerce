@@ -102,7 +102,7 @@ export default function Cart() {
                                         <p>Total price</p>
                                         <p>{totalvalues.cart.totalAmount}</p>
                                     </div>
-                                    <StripeCheckOutButton />
+                                    <StripeCheckOutButton props={items} />
 
                                 </div>
 
