@@ -4,10 +4,19 @@ import React from 'react'
 import { CartButton } from '../Shared/CartButton'
 import { Wrapper } from '../Shared/Wrapper'
 import {GalleryHeroSec} from '../Shared/NextButton'
+import { client } from '@/sanity/lib/client'
 
 
+async function getProductData() {
+    const res = await client.fetch(`*[_type=='heroslide'][0]`)
+    const imagedata = res
+    return imagedata
+  }
 
-export const Hero = () => {
+
+export const Hero = async() => {
+    const data=  await getProductData()
+
     return (
         <section >
             <Wrapper>
@@ -31,10 +40,10 @@ export const Hero = () => {
                     <div className='w-[50%] relative'>
                         {/* image */}
                         <div>
-                            <div className=' sm:absolute top-20 -left-36 z-10 ml-6  '>
+                            <div className=' sm:absolute top-16 -left-36 z-10 ml-6  '>
                                 <div>
                                     {/* @ts-ignore */}
-                                <GalleryHeroSec />
+                                <GalleryHeroSec props={data} />
                                 </div>
                             </div>
                             <div className='w-96 h-96 rounded-full bg-green-200/60 md:absolute top-5 blur-3xl hidden md:block '></div>

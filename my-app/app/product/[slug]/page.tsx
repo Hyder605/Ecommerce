@@ -33,7 +33,7 @@ export default async function Product({params}:Iparams) {
     const dynamicPage=params.slug
     const data=  await getProductData()
 
-    const dynamicId=data.find((item)=>item._id==dynamicPage.toString())
+    const dynamicId=data.find((item)=>item._id===dynamicPage.toString())
 
     
     return (

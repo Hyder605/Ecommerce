@@ -9,8 +9,10 @@ import Image from 'next/image'
 export default function Home() {
   return (
     <>
+    {/* @ts-ignore */}
     <Hero/>
     <CatBanner/>
+    {/* @ts-ignore */}
     <FlashSale/>
     <NewArrivals/>
     </>
