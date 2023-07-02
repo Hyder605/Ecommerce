@@ -24,7 +24,7 @@ interface IProduct {
 
 
 async function getProductData() {
-  const res: IProduct[] = await client.fetch(`*[_type=='product']{_id,title,image,price,'Product_category':category->name}`)
+  const res: IProduct[] = await client.fetch(`*[_type=='product']{_id,title,image,price,'Product_category':category->name}[0...4]`)
   const imagedata = res
   return imagedata
 }
