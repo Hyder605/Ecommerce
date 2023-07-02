@@ -35,7 +35,7 @@ export const NavBar = () => {
 
         <div className='sticky top-0 z-20'>
             <Wrapper>
-                <header className=' flex justify-between items-center pt-3 '>
+                <header className=' flex justify-between items-center pt-3 bg-green-100 '>
 
                     <div className='w-1/3 sm:pl-3 md:pl-5 lg:pl-10 hidden sm:block'>
                         {/* menu */}
@@ -86,7 +86,7 @@ export const NavBar = () => {
                             {!Menubutton && (
                                 <div className="fixed top-0 left-0 right-0 bottom-0 bg-gray-300 flex flex-col items-center pt-16">
 
-                                    <MobileMenu />
+                                    <MobileMenu props={setMenubutton} />
                                 </div>
                             )}
                         </div>

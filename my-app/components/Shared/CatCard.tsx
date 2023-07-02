@@ -21,9 +21,9 @@ export default function CatCard({ props }: { props: ICategory }) {
             <div className='bg-green relative '>
                 <div className='border h-56 lg:h-64 absolute -top-36 z-10 w-full rounded-md  px-12 py-16 shadow-2xl flex flex-col items-center bg-white'>
                     <h4 className="font-bold text-lg"></h4>
-                    <div className='absolute top-[85px] md:top-[130px] lg:top-[120px]'><Image src={urlForImage(props.image).url()} width={300} height={300} alt="" className='w-80 md:w-96'/></div>
+                    <div className='absolute top-[85px] md:top-[130px] lg:top-[120px]'><Image src={urlForImage(props.image).url()} width={300} height={300} alt="" className='w-80 md:w-96 hover:scale-125 duration-300 '/></div>
                     <p className='mt-2 text-slate-600'></p>
-                    <span className='absolute transform -rotate-90 right-1 -z-10 font-extrabold text-lg  text-gray-600'>{props.name}</span>
+                    <span className='absolute transform -rotate-90 right-1 -z-10 font-extrabold text-lg  text-gray-600 hover:scale-110 duration-300'>{props.name}</span>
 
 
                 </div>

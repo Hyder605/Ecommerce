@@ -39,12 +39,12 @@ export default async function Product({params}:Iparams) {
     return (
         <section>
             <Wrapper>
-                <div className="flex py-8 ">
+                <div className="flex md:flex-row py-8 flex-col">
                     <div className="flex flex-1">
                         {/* left section */}
                         {<SliderEffect props={dynamicId} />}
                     </div>
-                    <div className="flex flex-1  mx-8 px-6 flex-col py-8">
+                    <div className="flex flex-1 md:mx-8 px-6 flex-col py-8">
                         {/* Right Section */}
                         <h2 className="text-3xl font-semibold mb-2">
                         {dynamicId?.title}

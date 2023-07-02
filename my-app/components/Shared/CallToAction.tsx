@@ -7,6 +7,7 @@ import { addToCart } from '@/store/slice/cartSlice'
 import { Image as IImage } from 'sanity'
 import { ShoppingCart } from 'lucide-react';
 import { Button } from '../ui/button';
+import toast from 'react-hot-toast';
 
 
 interface IProduct {
@@ -31,22 +32,19 @@ const CallToAction: FC<{ props: any }> = ({ props }) => {
 
     function addToCartHandler() {
         dispatch(addToCart({ product: data, quantity: counter }));
+        toast.success("Product added");
+
     }
 
     function increment() {
-        if (counter < 10) {
-            setCounter((prev) => prev + 1);
+        if (counter < 15) {
+            setCounter((pre) => pre + 1);
         }
+        
     }
     function decrement() {
         if (counter > 1) {
-            setCounter((prev) => prev - 1);
-        }
-    }
-
-    function onInputNumberChangeHandler(e: React.ChangeEvent<HTMLInputElement>) {
-        if (+e.currentTarget.value >= 1 && +e.currentTarget.value <= 10) {
-            setCounter(+e.currentTarget.value);
+            setCounter((pre) => pre - 1);
         }
     }
 
@@ -55,12 +53,12 @@ const CallToAction: FC<{ props: any }> = ({ props }) => {
             <div className="flex gap-x-4">
             <button
                 onClick={decrement}
-                className="flex justify-center items-center rounded-full bg-green-300 text-xl w-6 h-6"
+                className="flex justify-center items-center rounded-full bg-green-200 text-xl w-6 h-6"
             >-</button>
             <div>{counter}</div>
             <button
                 onClick={increment}
-                className="flex justify-center items-center rounded-full bg-green-300 text-xl w-6 h-6"
+                className="flex justify-center items-center rounded-full bg-green-200 text-xl w-6 h-6"
             >
                 +
             </button>

@@ -3,9 +3,8 @@
 
 import Image from 'next/image';
 import { StepForward } from "lucide-react"
-import { useEffect, useState } from 'react';
-import { HeroSecImageList } from '../../components/data/heroSecImages';
-import { client } from '@/sanity/lib/client'
+import { useState } from 'react';
+
 import { urlForImage } from '@/sanity/lib/image'
 
 
@@ -42,9 +41,9 @@ export const GalleryHeroSec=({props}:any)=> {
       {/* Next button on Hero Section */}
       <button
         onClick={handleNextClick}
-        className="relative left-[25%] sm:left-[370px]  md:left-[430px] lg:left-[540px] top-[220px]  sm:top-[180px] xl:left-[580px] rounded-full bg-blue-400 "
+        className="relative left-[104%] sm:left-[370px]  md:left-[430px] lg:left-[540px] top-[150px]  sm:top-[180px] xl:left-[580px] rounded-full bg-green-100 "
       >
-        <StepForward className="mr-2 h-14 w-12 " />
+        <StepForward className="mr-2 h-10 w-8 sm:h-14 sm:w-12 " />
       </button>
       <div className=' w-[125%] sm:max-w-[95%] md:max-w-[85%] lg:max-w-[100%] sm:pl-16 md:pl-8 mb-5'>
         <Image

@@ -5,6 +5,7 @@ import { Image as IImage } from 'sanity'
 
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import toast from 'react-hot-toast';
 
 export interface CartItem {
   product: any;
@@ -44,6 +45,8 @@ export default function AddQuantityButton({ props }: AddQuantityButtonProps) {
     if (value > 0) {
       setValue(value - 1);
       dispatch(removeItemFromCart(AddToCart._id));
+      toast.success("Product Removed");
+
 
     } else {
       setValue(0);
@@ -53,21 +56,23 @@ export default function AddQuantityButton({ props }: AddQuantityButtonProps) {
   const increment = () => {
     setValue(value + 1);
     dispatch(addToCart({ product: AddToCart, quantity: 1 }));
+    toast.success("Product added");
+
 
   };
 
   return (
-    <div className="flex gap-x-4">
+    <div className="flex gap-x-2 md:gap-x-4">
       <button
         onClick={decrement}
-        className="flex justify-center items-center rounded-full bg-green-300 text-xl w-6 h-6"
+        className="flex justify-center items-center rounded-full bg-green-200 text-xl w-6 h-6"
       >
         -
       </button>
       <div>{value}</div>
       <button
         onClick={increment}
-        className="flex justify-center items-center rounded-full bg-green-300 text-xl w-6 h-6"
+        className="flex justify-center items-center rounded-full bg-green-200 text-xl w-6 h-6"
       >
         +
       </button>

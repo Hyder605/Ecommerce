@@ -1,5 +1,4 @@
 'use client'
-import React, { useState } from 'react'
 import Image, { StaticImageData } from 'next/image'
 import { Image as IImage } from 'sanity'
 import { urlForImage } from '@/sanity/lib/image'
@@ -16,12 +15,12 @@ import { urlForImage } from '@/sanity/lib/image'
 //     blurWidth: number;
 //     blurHeight: number;
 //   }
-  
+
 //   interface VariationImage {
 //     name: string;
 //     imageurl: ImageUrl;
 //   }
-  
+
 //   interface Product {
 //     id: number;
 //     slug: string;
@@ -32,8 +31,8 @@ import { urlForImage } from '@/sanity/lib/image'
 //     variationsImage: VariationImage[];
 //   }
 
-  
-interface IProduct{
+
+interface IProduct {
     _id: string,
     title: string,
     image: IImage,
@@ -41,21 +40,21 @@ interface IProduct{
 }
 
 
-export default function SliderEffect({ props }:any) {
-    const Productdetail:IProduct=props
+export default function SliderEffect({ props }: any) {
+    const Productdetail: IProduct = props
 
     // const [sliderImage, setSliderImage] = useState("front_image")
     const SImage = Productdetail.image
     // console.log(SImage)
     return (
-        <div className='flex gap-x-4 pr-6 pl-16'>
+        <div className='flex w-full flex-col-reverse md:flex-row gap-y-4 gap-x-4 pr-5 md:pr-6 pl-5 md:pl-16'>
 
-            <div className="w-[15%] space-y-6">
-            <button className="w-full h-[70px] bg-green-500 flex justify-center items-center">
-             <Image src={urlForImage(Productdetail.image).url()} alt={Productdetail._id} width={400} height={400} />
-         </button>
+            <div className="flex md:w-[15%] space-y-6 justify-center">
+                <button className="md:h-[50px] bg-green-200 flex justify-center items-center">
+                    <Image src={urlForImage(Productdetail.image).url()} alt={Productdetail._id} width={100} height={100} />
+                </button>
             </div>
-            <div className=" w-full bg-slate-300 ">
+            <div className=" w-full bg-slate-200 flex justify-center items-center">
                 {SImage && <Image src={urlForImage(SImage).url()} alt="shoe" width={400} height={800} />}
             </div>
         </div>
