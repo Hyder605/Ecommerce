@@ -30,7 +30,16 @@ const CallToAction: FC<{ props: any }> = ({ props }) => {
 
     const dispatch = useDispatch();
 
-    function addToCartHandler() {
+    async function addToCartHandler() {
+        const res = await fetch('/api/ecomcart', {
+      method: "POST",
+      body: JSON.stringify({
+        product_id: data._id,
+        quantity:counter
+      })
+    })
+
+    const result = await res.json();
         dispatch(addToCart({ product: data, quantity: counter }));
         toast.success("Product added");
 
