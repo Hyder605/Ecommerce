@@ -26,7 +26,7 @@ export async function POST(request:NextRequest){
     try {
         const res=await db.insert(cartTable).values({
             product_id:req.product_id,
-            quantity:1,
+            quantity:req.quantity,
             user_id:setCookies.get("user_id")?.value as string
         }).returning();
         return NextResponse.json({res})
