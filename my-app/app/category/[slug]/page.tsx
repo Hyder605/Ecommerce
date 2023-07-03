@@ -29,7 +29,7 @@ export default async function Categories({ params}: { params: { slug: string },
 // console.log(dynamicId)
     const data=dynamicId.filter((item)=>item.Product_slug===dynamicPage)
       return (
-        <div className="grid  grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 px-16 py-16 items-center content-between">
+        <div className="grid  grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 px-7 md:px-16 py-16 items-center content-between">
 
                     {data.map((item) => (
                         <Link key={item._id} href={`./product/${item._id}`} className='hover:scale-105 duration-300' >
