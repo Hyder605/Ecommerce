@@ -28,7 +28,11 @@ export default async function Categories({ params}: { params: { slug: string },
     const dynamicId=  await getProductData()
 // console.log(dynamicId)
     const data=dynamicId.filter((item)=>item.Product_slug===dynamicPage)
+    const pageTitle=data.find((item)=>item.Product_category)
       return (
+        <>
+        <div className=' font-extrabold text-2xl sm:text-3xl md:text-4xl pt-8 pl-6'>{pageTitle?.Product_category}</div>
+
         <div className="grid  grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 px-16 py-16 items-center content-between">
 
                     {data.map((item) => (
@@ -48,5 +52,6 @@ export default async function Categories({ params}: { params: { slug: string },
                         </Link>
                     ))}
                 </div>
+                </>
       )
     }

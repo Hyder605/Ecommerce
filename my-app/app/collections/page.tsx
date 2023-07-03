@@ -30,6 +30,7 @@ export default async function Collections() {
 
         <section>
             <Wrapper>
+                <div className=' font-extrabold text-2xl sm:text-3xl md:text-4xl pt-8 pl-6'>Collections</div>
                 <div className="grid  grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 px-5 lg:px-16 py-16 items-center content-between">
 
                     {data.map((item) => {
