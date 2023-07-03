@@ -7,12 +7,12 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import toast from 'react-hot-toast';
 
-export interface CartItem {
+interface CartItem {
   product: any;
   quantity:number
   totalPrice:number
 } 
-export interface CartState {
+interface CartState {
   cart: {
     items: CartItem[];
     totalAmount: number;

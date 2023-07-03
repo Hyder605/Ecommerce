@@ -9,12 +9,12 @@ import MobileMenu from './MenuMobile'
 import Link from 'next/link'
 import { useSelector } from 'react-redux'
 
-export interface CartItem {
+interface CartItem {
     product: any;
     quantity: number;
 }
 
-export interface CartState {
+interface CartState {
     cart: {
         items: CartItem[];
         totalAmount: number;
